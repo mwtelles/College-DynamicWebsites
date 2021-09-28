@@ -1,0 +1,13 @@
+//GET: Listagem de todos os produtos da categoria especificada
+
+GET http://localhost:6070/categoria/1
+Accept: application/json
+
+###
+
+//GET: Busca de produtos de uma categoria por nome e/ou faixa de valor
+
+GET http://localhost:6070/categoria/1/produto?nome=RANQUEADA%20SOLO/DUO&valorMinimo=1.00&valorMaximo=30.00
+Accept: application/json
+
+###
