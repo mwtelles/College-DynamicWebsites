@@ -1,10 +1,5 @@
 package br.com.uvass.springbooth2.model.entity;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
-
-
 public class Aluno extends Usuario {
 
     private String matricula;
