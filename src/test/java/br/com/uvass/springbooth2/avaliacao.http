@@ -1,0 +1,2 @@
+GET http://localhost:6070/avaliacao/1
+Accept: application/json

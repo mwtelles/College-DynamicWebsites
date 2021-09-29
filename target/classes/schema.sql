@@ -1,47 +1,47 @@
-CREATE TABLE categoria(
-                          id                  INT            NOT NULL,
-                          ImagemSimboloUrl    VARCHAR (8000),
-                          nome                VARCHAR (100)   NOT NULL,
-                          descricao           VARCHAR (500)
+CREATE TABLE Usuario (
+                         id    INT         NOT NULL,
+                         nome  VARCHAR(255) NOT NULL,
+                         email VARCHAR(255) NOT NULL,
+                         senha VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE produto (
+CREATE TABLE Aluno (
                          id                        INT           NOT NULL,
-                         nome                      VARCHAR(100)   NOT NULL,
-                         descricao                 VARCHAR(500),
-                         fotoUrl                   VARCHAR(8000),
-                         dataCadastro              DATE,
-                         dataUltimaAtualizacao     TIMESTAMP     NOT NULL,
-                         valorUnitario             FLOAT(5.2)
+                         matricula                      VARCHAR(255)   NOT NULL,
     );
 
-CREATE TABLE produtoCategoria (
-                                  id           INT NOT NULL,
-                                  produtoId    INT NOT NULL,
-                                  categoriaId  INT NOT NULL,
 
-                                  FOREIGN KEY (categoriaId) REFERENCES categoria(id),
-                                  FOREIGN KEY (produtoId) REFERENCES produto(id)
+CREATE TABLE Professor (
+                         id    INT         NOT NULL,
+                         nomeCompleto  VARCHAR(255) NOT NULL,
+                         disciplinaId INT NOT NULL,
+                         FOREIGN KEY (disciplinaId) REFERENCES disciplina(id)
 );
 
-CREATE TABLE tabelaPromocao(
-                               id INT NOT NULL,
-                               nome VARCHAR(100) NOT NULL,
-                               descricao VARCHAR(500),
-                               dataInicio DATE,
-                               dataFim DATE,
-                               dataCadastro DATE,
-                               dataUltimaAtualizacao TIMESTAMP NOT NULL
+CREATE TABLE Disciplina (
+                           id    INT         NOT NULL,
+                           nome  VARCHAR(255) NOT NULL,
+                           cursoId INT NOT NULL,
+                           FOREIGN KEY (cursoId) REFERENCES curso(id)
 );
 
-CREATE TABLE promocaoItem (
-                              id INT NOT NULL,
-                              valorPromocao FLOAT,
-                              dataCadastro DATE,
-                              dataUltimaAtualizacao TIMESTAMP NOT NULL,
-                              produtoId INT NOT NULL,
-                              promocaoId INT NOT NULL,
+CREATE TABLE Curso (
+                            id    INT         NOT NULL,
+                            nome  VARCHAR(255) NOT NULL,
+);
 
-                              FOREIGN KEY (promocaoId) REFERENCES tabelaPromocao(id),
-                              FOREIGN KEY (produtoId) REFERENCES produto(id)
+CREATE TABLE Avaliacao (
+                         id    INT         NOT NULL,
+                         avaliadoId INT NOT NULL,
+                         dataCriacao DATE,
+                         dataLimite DATE,
+                         FOREIGN KEY (avaliadoId) REFERENCES avaliado(id)
+);
+
+CREATE TABLE Avaliado (
+                          id    INT         NOT NULL,
+                          professorId INT NOT NULL,
+                          disciplinaId INT NOT NULL,
+                          FOREIGN KEY (professorId) REFERENCES professor(id)
+                          FOREIGN KEY (disciplinaId) REFERENCES disciplina(id)
 );
