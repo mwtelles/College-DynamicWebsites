@@ -5,7 +5,7 @@ public class Aluno extends Usuario {
     private String matricula;
 
     public Aluno(Integer id, String nome, String email, String senha, String matricula) {
-        super(id, nome, email, senha);
+        super();
         this.matricula = matricula;
     }
 
@@ -17,5 +17,5 @@ public class Aluno extends Usuario {
         this.matricula = matricula;
     }
 }
-}
+
 

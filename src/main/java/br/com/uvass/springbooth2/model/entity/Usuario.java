@@ -6,7 +6,7 @@ public class Usuario {
     private String email;
     private String senha;
 
-    public Usuario(Integer id, String nome, String email, String senha) {
+    public Usuario() {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -17,7 +17,7 @@ public class Usuario {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = Integer.parseInt(id);
     }
 
