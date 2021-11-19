@@ -14,12 +14,12 @@ public class AvaliacaoRepository {
     }
 
 
-    public ArrayList<Avaliacao> buscarPorId(Integer id) throws Exception {
-        String sql = "SELECT * FROM avaliacao WHERE id = ?";
-        ArrayList<Avaliacao> buscar = (ArrayList<Avaliacao>) jdbcTemplate.query(sql, new AvaliacaoMapper(), id);
+    public ArrayList<Avaliacao> buscarPorId() throws Exception {
+        String sql = "SELECT * FROM avaliacao";
+        ArrayList<Avaliacao> buscar = (ArrayList<Avaliacao>) jdbcTemplate.query(sql, new AvaliacaoMapper());
 
         if (buscar.size() > 0) {
-            return (ArrayList<Avaliacao>) jdbcTemplate.query(sql, new Object[]{id}, new AvaliacaoMapper());
+            return (ArrayList<Avaliacao>) jdbcTemplate.query(sql, new AvaliacaoMapper());
         }
         throw new Exception("Nenhuma avaliação encontrada com este ID");
     }

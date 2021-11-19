@@ -9,11 +9,12 @@ import java.sql.SQLException;
 public class AvaliacaoMapper implements RowMapper<Avaliacao> {
     @Override
     public Avaliacao mapRow(ResultSet resultSet, int i) throws SQLException {
-        Avaliacao produto = new Avaliacao();
-        produto.setId(resultSet.getInt("id"));
-        produto.setDataCriacao(resultSet.getDate("dataCriacao").toLocalDate());
-        produto.setDataLimite(resultSet.getDate("dataLimite").toLocalDate());
+        Avaliacao avaliacao = new Avaliacao();
+        avaliacao.setId(resultSet.getInt("id"));
+        avaliacao.setNome(resultSet.getString("nome"));
+        avaliacao.setDataCriacao(resultSet.getString("dataCriacao"));
+        avaliacao.setDataLimite(resultSet.getString("dataLimite"));
 
-        return produto;
+        return avaliacao;
     }
 }

@@ -1,2 +1,2 @@
-GET http://localhost:6070/avaliacao/1
+GET http://localhost:6070/avaliacao/
 Accept: application/json

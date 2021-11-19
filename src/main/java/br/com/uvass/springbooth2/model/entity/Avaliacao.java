@@ -4,8 +4,17 @@ import java.time.LocalDate;
 
 public class Avaliacao {
     private Integer id;
-    private LocalDate dataCriacao;
-    private LocalDate dataLimite;
+    private String nome;
+    private String dataCriacao;
+    private String dataLimite;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public Integer getId() {
         return id;
@@ -15,19 +24,19 @@ public class Avaliacao {
         this.id = id;
     }
 
-    public LocalDate getDataCriacao() {
+    public String getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDate dataCriacao) {
+    public void setDataCriacao(String dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 
-    public LocalDate getDataLimite() {
+    public String getDataLimite() {
         return dataLimite;
     }
 
-    public void setDataLimite(LocalDate dataLimite) {
+    public void setDataLimite(String dataLimite) {
         this.dataLimite = dataLimite;
     }
 

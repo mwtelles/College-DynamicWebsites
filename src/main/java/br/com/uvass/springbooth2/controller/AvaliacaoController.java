@@ -18,15 +18,17 @@ public class AvaliacaoController {
         avaliacaoRepository = new AvaliacaoRepository(jdbcTemplate);
     }
 
+    @CrossOrigin("*")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Avaliacao inserir(@RequestBody Avaliacao avaliacao) throws Exception {
         return avaliacaoRepository.adicionar(avaliacao);
     }
 
+    @CrossOrigin("*")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{id}")
-    public ArrayList<Avaliacao> buscarPorId(@PathVariable Integer id) throws Exception {
-        return avaliacaoRepository.buscarPorId(id);
+    @GetMapping
+    public ArrayList<Avaliacao> buscarPorId() throws Exception {
+        return avaliacaoRepository.buscarPorId();
     }
 }
